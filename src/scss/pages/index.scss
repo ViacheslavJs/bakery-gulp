@@ -1,0 +1,939 @@
+/* variable modules */
+
+$color_base: #ffffff;
+$text_color: #404040;
+
+/* module flex-sides */
+$sides-title_color: #646464;
+$sides-button_color: #fab145;
+
+/* module flex-sides-rev */
+$rev-sides-title_color: darken(#eeb16d, 7%);
+$rev-sides-text_color: darken($color_base, 5%);
+
+/* module product */
+$product-title_color: #646464;
+$product-text_color: darken($color_base, 30%);
+
+/* module grid-tiles */
+$tile-link_display: none;     /* flex/none */
+$tile-icon_color: #eeb16d;
+$tile-title_color: #eeb16d;
+$tile-text_color: darken($color_base, 30%);
+
+/* module flex-column */
+$column-brand_display: none;  /* block/none */
+$column-title_color: #646464;
+$column-text_display: none;   /* block/none */
+$column-button_color: #fab145;
+
+/* module reviews */
+$review-link_display: flex;   /* flex/none */
+$review-card_bg: #f6f6f8;
+$review-icon_color: darken(#eeb16d, 20%);
+$review-text_color: darken(#646464, 0%);
+$review-title_color: darken(#eeb16d, 30%);
+$rev-sides-button_color: #fab145;
+
+
+.page-home {
+  font-family: sans-serif;         
+  margin-top: $header_height; 
+  @media screen and (max-width: $mobile-big_end-point) {
+    margin-top: $header_mobile-height;
+  }
+
+}
+
+/***** TODO - module flex-sides *********************/
+.flex-sides { 
+  background: #f6f6f8;    
+  @media screen and (min-width: $tablet-small_starting-point) { 
+    background-image: url('../img/bg1.jpg'); 
+    display: block;
+    max-width: 100%;
+    min-height: 85vh;  	
+    background-size: contain;
+    background-position: -150px 50px; /* 0% 0% */
+    background-repeat: no-repeat;
+  }
+   
+  &__content{
+    display: flex;  
+    flex-direction: column-reverse;
+    justify-content: center;          
+    align-items: flex-start;                  
+    max-width: 100%;                               
+    margin: 0 auto;
+    padding: 0;   
+    @media screen and (min-width: $tablet-small_starting-point) {         
+      flex-direction: row;
+      align-items: flex-end; 
+    }
+  }
+  
+  &__images-box {                 
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%; 
+    
+    max-width: 100%;  
+    margin: 20px auto 40px auto;     
+    padding: 0;  
+    @media screen and (min-width: 485px) and (max-width: $mobile-big_end-point) {         
+      max-width: 70%; 
+    }
+    @media screen and (min-width: $tablet-small_starting-point) {
+      visibility: hidden;
+      margin: 0;
+    }
+  }
+  
+  &__image { 
+    display: block;       
+    max-width: 100%; 
+    margin: 0 auto;
+    object-fit: cover;      
+  }
+  
+  &__info {                      
+    flex-grow: 1;
+    flex-shrink: 1;     
+    flex-basis: 0%;
+    
+    max-width: 100%;                
+    margin-top: 100px;               
+    margin-bottom: 0px;      
+    font-size: 16px;      
+    padding: 20px 0;
+    @media screen and (min-width: $tablet-small_starting-point) {
+      max-width: 45%;                
+      margin: 100px 0 50px 0;    
+    } 
+    @media screen and (min-width: 1360px) {               
+      max-width: 60%;      
+    }
+  }
+  
+  &__brand {
+    display: block;
+    max-width: 25%;
+    margin: auto;
+  }
+  
+  &__title {  
+    margin: 15px 0;         
+    padding: 5px 0;
+    font-family: serif;
+    font-size: 1.4em;        
+    font-weight: 400;  
+    text-align: center;
+    text-transform: uppercase;            
+    letter-spacing: 8px;
+    color: $sides-title_color;
+    @media screen and (min-width: 768px) { 
+      margin: 8px -8px 0 0;        
+      text-align: center;
+    }    
+    @media screen and (min-width: 645px) {
+      font-size: 1.8em;
+    }  
+  }
+    
+  &__text {    
+    max-width: 100%;               
+    margin: 0px 0 20px 0;
+    padding: 5px 0; 
+    font-size: 1.2rem; 
+    letter-spacing: 0px;    
+    line-height: 2;        
+    text-align: center;
+    color: $text_color;  
+    @media screen and (min-width: 768px) {         
+      margin: 8px 0 20px 0; 
+      text-align: center;
+    }       
+  }
+  
+   
+}
+
+.sides-links {               
+  display: flex;
+  flex-direction: row;
+  justify-content: center;     
+  align-items: center;
+  margin: 0;
+  padding: 0; 
+  font-size: 16px;
+      
+  &__button {
+    display: block; 
+    padding: 10px 15px;
+    border: 2px solid $sides-button_color;
+    border-radius: 50px;
+    background: #f6f6f8;    
+    text-decoration: none;
+    &:hover {
+      opacity: 0.7; 
+      cursor: pointer;
+    }
+  }
+
+  &__button-text{
+    display: block;
+    font-size: 1em;
+    font-weight: 400;
+    text-align: center;  
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px; 
+    color: $sides-button_color;
+  }
+    
+}
+
+/********** module flex-sides ***********/
+
+
+/***** TODO - module product *********************/
+.product {
+  max-width: calc(100%); 
+  margin-bottom: 0px;
+  padding: 50px 0;
+  
+  background-image: url('../img/bg3.jpg'); 
+  display: block;
+  max-width: 100%;
+  min-height: 100vh;  	
+  background-size: cover;
+  background-position: 40% 0%;   
+  background-repeat: no-repeat;    
+  
+  &__prev-title {  
+    margin: 0px 5px;
+    padding: 0; 
+    text-align: center;
+    font-size: 2rem; 
+    /*font-size: calc(25px + (40 + 40 * 0.7) *(100vw - 320px) / 1920);*/
+    font-weight: 400;       
+    color: $color_base;
+    @media screen and (min-width: 645px) {
+      font-size: 2.8rem;
+    }   
+  }
+  
+  &__prev-text {    
+    max-width: 100%; 
+    margin: 20px 0px 50px 0px;
+    font-size: 1.5rem;     
+    text-align: center; 
+    letter-spacing: 6px;  
+    color: $color_base;
+    @media screen and (min-width: 645px) {
+      font-size: 1.75rem;
+    }  
+  }
+ 
+}
+
+/***** grid/flex *****/
+.product__product-box {
+  display: grid;
+  grid-gap: 20px;  
+  grid-template-columns: repeat(1, 1fr); 
+  grid-auto-rows: minmax(100px, auto);
+  @media screen and (min-width: 485px) {       
+    grid-template-columns: repeat(2, 1fr);      
+  }  
+  @media screen and (min-width: 750px) {      
+    grid-template-columns: repeat(3, 1fr);      
+  }
+  @media screen and (min-width: 991px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;      
+  }
+            
+}
+
+.product-card { 
+  position: relative;
+  &.product-card {
+    background: #f6f6f8; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); /* TODO - shadow */
+    @media screen and (min-width: 991px) {
+      width: 215px;  
+    }
+  }
+  
+  &__images-box {
+    
+  }
+  
+  &__image { 
+    display: block;
+    width: 100%;
+    height: 310px;
+    margin: 15px 0;
+    object-fit: cover;
+    object-position: center;
+    @media screen and (max-width: 350px) {
+      margin: 7px 0;
+    }   
+    @media screen and (min-width: 485px) {       
+      height: 230px;     
+    }
+    @media screen and (min-width: 750px) {      
+      height: 200px;      
+    }
+    @media screen and (min-width: 991px) {
+      height: 155px;   
+    }                                     
+  }
+  
+  &__product-card-title {
+    height: calc(1.3rem * 2.7);  
+    margin: 8px 0;             
+    padding: 5px 0;
+    font-size: 1.2rem;
+    font-weight: 400; 
+    text-align: left; 
+    text-transform: uppercase; 
+    /*word-break: break-all;*/                            
+    color: $product-title_color;   
+  }
+  
+  &__product-card-text {        
+    margin-top: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: calc(1.3rem * 3.8);       
+    padding: 5px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: left;
+    color: $text_color;     
+  }  
+  
+}
+
+.product-links {                
+  display: flex;
+  flex-direction: row;
+  justify-content: center;     
+  align-items: center;      
+  margin: 0;
+  padding: 0; 
+  font-size: 16px;
+      
+  &__button {
+    position: absolute;     
+    bottom: 1.2em;  
+    margin: 0; 
+    padding: 0.5em 0.8em;
+    border: 2px solid $rev-sides-button_color;
+    border-radius: 50px;
+    background: #f6f6f8;    
+    text-decoration: none;
+    &:hover {
+      opacity: 0.7; 
+      cursor: pointer;
+    }
+  }
+
+  &__button-text{
+    display: block;
+    font-size: 0.9em;            
+    font-weight: 400;
+    text-align: center;  
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px; 
+    color: $rev-sides-button_color;
+  }
+    
+}
+
+
+/*********** product ************/
+
+/***** TODO - module flex-sides-rev *********************/
+.flex-sides-rev {  
+  background: #f6f6f8;   
+    @media screen and (min-width: $tablet-small_starting-point) { 
+    background-image: url('../img/bg4.jpg'); 
+    display: block;
+    max-width: 100%;
+    min-height: 85vh;  	
+    background-size: contain;
+    background-position: 100% 0px;   
+    background-repeat: no-repeat;
+  }
+
+  &__content {
+    display: flex;  
+    flex-direction: column-reverse;    
+    justify-content: center;          
+    align-items: flex-start;                  
+    max-width: 100%;                               
+    margin: 0px auto;
+    padding: 0;   
+    @media screen and (min-width: $tablet-small_starting-point) {         
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+  }
+  
+  &__images-box {                 
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%; 
+                                        
+    max-width: 100%;                 
+    margin: 20px auto 40px auto;     
+    padding: 0;  
+    @media screen and (min-width: 485px) and (max-width: $mobile-big_end-point) {         
+      max-width: 70%;       
+    }
+    @media screen and (min-width: $tablet-small_starting-point) {
+      visibility: hidden;
+      margin: 0;
+    }
+  }
+  
+  &__image {                  
+    display: block;       
+    max-width: 100%; 
+    margin: 0 auto;
+    object-fit: cover;    
+    /*visibility: hidden; /* TODO */   
+  }
+  
+  &__info {                      
+    flex-grow: 1;
+    flex-shrink: 1;     
+    flex-basis: 0%;
+                                            
+    max-width: 100%;                
+    margin-top: 40px;               
+    margin-bottom: 20px;      
+    font-size: 16px;      
+    padding: 20px 10px;
+    background: rgba(0, 0, 0, 0.6);
+    @media screen and (min-width: $tablet-small_starting-point) {
+      max-width: 45%;                
+      margin: 100px 0 50px 0;    
+    } 
+    @media screen and (min-width: 1360px) {               
+      max-width: 60%; 
+    }
+  }
+  
+  &__title {  
+    margin: 15px 0 0 0;         
+    padding: 5px 0;
+    font-family: serif;
+    font-size: 1.4em;        
+    font-weight: 400;  
+    text-align: center;
+    text-transform: uppercase;            
+    letter-spacing: 8px;
+    color: $rev-sides-title_color;
+    @media screen and (min-width: 768px) { 
+      margin: 8px -8px 0 0;        
+      text-align: center;
+    }    
+    @media screen and (min-width: 645px) {
+      font-size: 1.8em;
+    }  
+  }
+    
+  &__text {    
+    max-width: 100%;               
+    margin: 0px 0 20px 0;
+    padding: 5px 0; 
+    font-size: 1.2rem; 
+    letter-spacing: 0px;    
+    line-height: 2;        
+    text-align: center;
+    color: $rev-sides-text_color;  
+    @media screen and (min-width: 768px) {         
+      margin: 8px 0 20px 0; 
+      padding: 5px 0;
+      text-align: center;
+    }       
+  }
+  
+    
+}
+
+.sides-rev-links {               
+  display: flex;
+  flex-direction: row;
+  justify-content: center;     
+  align-items: center;
+  margin: 0;
+  padding: 0; 
+  font-size: 16px;
+      
+  &__button {
+    display: block; 
+    padding: 10px 15px;
+    border: 2px solid $rev-sides-button_color;
+    border-radius: 50px;
+    background: #f6f6f8;    
+    text-decoration: none;
+    &:hover {
+      opacity: 0.7; 
+      cursor: pointer;
+    }
+  }
+
+  &__button-text{
+    display: block;
+    font-size: 1em;
+    font-weight: 400;
+    text-align: center;  
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px; 
+    color: $rev-sides-button_color;
+  }
+    
+}
+
+/********** module flex-sides-rev ***********/
+
+
+/***** TODO - module grid-tiles *********************/
+.grid-tiles {
+  max-width: calc(100%); 
+  /*margin-bottom: 10px;*/
+  padding: 50px 0;
+  
+  background-image: url('../img/bg2.jpg'); 
+  display: block;
+  max-width: 100%;
+  min-height: 100vh;  	
+  background-size: cover;
+  background-position: 0% 0%;   
+  background-repeat: no-repeat;    
+  
+  &__prev-title {  
+    margin: 0px 5px;
+    padding: 0; 
+    text-align: center;
+    font-size: 2rem; 
+    /*font-size: calc(25px + (40 + 40 * 0.7) *(100vw - 320px) / 1920);*/
+    font-weight: 400;       
+    color: $color_base;
+    @media screen and (min-width: 645px) {
+      font-size: 2.8rem;
+    }   
+  }
+  
+  &__prev-text {    
+    max-width: 100%; 
+    margin: 20px 0px 50px 0px;
+    font-size: 1.5rem;     
+    text-align: center; 
+    letter-spacing: 6px;  
+    color: $color_base;
+    @media screen and (min-width: 645px) {
+      font-size: 1.75rem;
+    }  
+  }
+ 
+}
+
+/***** grid/flex *****/
+.grid-tiles__tiles-box {
+  display: grid;
+  grid-gap: 20px;  
+  grid-template-columns: repeat(1, 1fr); 
+  grid-auto-rows: minmax(100px, auto);
+  @media screen and (min-width: 548px) {       
+    grid-template-columns: repeat(2, 1fr);      
+  }  
+  @media screen and (min-width: 750px) {      
+    grid-template-columns: repeat(3, 1fr);      
+  }
+  @media screen and (min-width: 991px) {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2vw;   
+  }
+            
+}
+  
+.tiles-box__tile {    
+  &.tile {
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.7); 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* TODO - shadow */
+    @media screen and (min-width: 991px) {
+      /*width: 215px;*/   
+    }
+  }
+    
+}
+
+.tile {
+  &__link {   
+    display: $tile-link_display; /* flex/none */        
+    flex-direction: row;
+    justify-content: center;  
+    align-items: center;    
+    width: 80px;
+    height: 80px;  
+    margin: 30px 5px 10px 5px;  
+    font-size: 16px;      
+    border-radius: 50%;        
+    &:hover {
+      opacity: 0.6; 
+      cursor: pointer;
+    }   
+  }
+  
+  &__link-icon { 
+    display: block;
+    width: 100%;
+    height: 100%;           
+    font-size: 2.7em;               
+    color: $tile-icon_color;  
+    border-radius: 50%; 
+    background: #f6f6f6; 
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    
+    /* TODO - https://www.cssmatic.com/box-shadow - Box Shadow CSS Generator */
+    /*-webkit-box-shadow: 0px 16px 19px -10px rgba(204,204,204,1);
+    -moz-box-shadow: 0px 16px 19px -10px rgba(204,204,204,1);
+    box-shadow: 0px 16px 19px -10px rgba(204,204,204,1); */  
+    -webkit-box-shadow: 0px 6px 10px 1px rgba(112,112,112,0.19);
+    -moz-box-shadow: 0px 6px 10px 1px rgba(112,112,112,0.19);
+    box-shadow: 0px 6px 10px 1px rgba(112,112,112,0.19);  
+  }
+  
+  &__tile-title {
+    height: calc(1.3rem * 4);
+    margin: 8px 0;             
+    padding: 1rem 0;
+    font-size: 1.3rem;
+    font-weight: 400; 
+    text-align: left; 
+    text-transform: uppercase; 
+    /*word-break: break-all;*/                            
+    color: $tile-title_color;   
+  }
+  
+  &__tile-text {
+    margin: 10px 0;         
+    padding: 5px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: left;
+    color: $tile-text_color;     
+  }  
+  
+}
+
+.fas.fa-plane {
+  transform: rotate(315deg);
+}
+
+/***** module grid-tiles *********************/
+
+/***** TODO - module flex-column *********************/
+.flex-column {
+  background: #f6f6f8;     
+
+  &__content {  
+    display: flex;  
+    flex-direction: column-reverse;         
+    justify-content: center;          
+    align-items: flex-start;                  
+    max-width: 100%;                               
+    margin: 0 auto;
+    padding: 0;   
+    @media screen and (min-width: $tablet-small_starting-point) {         
+      flex-direction: row;
+      align-items: center; 
+    }
+  }
+  
+  &__images-box {                 
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%; 
+    align-self: flex-start;        
+    
+    max-width: 100%;  
+    margin: 25px auto;     
+    padding: 0;  
+    @media screen and (min-width: 485px) and (max-width: $mobile-big_end-point) {         
+      max-width: 70%; 
+    }
+    @media screen and (min-width: $tablet-small_starting-point) {
+      margin: 0; 
+    }
+  }
+  
+  &__image { 
+    display: block;       
+    max-width: 100%; 
+    margin: 0 auto;
+    object-fit: cover;      
+  }
+  
+  &__info {                      
+    flex-grow: 1;
+    flex-shrink: 1;     
+    flex-basis: 0%;
+    
+    max-width: 100%;                
+    margin-top: 25px;               
+    margin-bottom: 0px;      
+    font-size: 16px;      
+    padding: 20px 0;
+    @media screen and (min-width: $tablet-small_starting-point) {
+      max-width: 45%;                
+      margin: 150px 0 100px 0;
+    } 
+    @media screen and (min-width: 1360px) {               
+      max-width: 60%;     
+    }
+  }
+  
+  &__brand {                           
+    display: $column-brand_display;
+    max-width: 25%;
+    margin: 15px auto;
+  }
+  
+  &__title {  
+    margin: 15px 0;         
+    padding: 5px 0;
+    font-family: serif;
+    font-size: 1.3em;        
+    font-weight: 400;                  
+    text-align: center;
+    text-transform: uppercase;            
+    letter-spacing: 8px;
+    color: $column-title_color;
+    @media screen and (min-width: 768px) { 
+      margin: 8px -8px 0 0;        
+      text-align: center;
+    }    
+    @media screen and (min-width: 645px) {
+      font-size: 1.5em;
+    }  
+  }
+    
+  &__text {  
+    display: $column-text_display;
+    max-width: 100%;               
+    margin: 0px 0 20px 0;      
+    padding: 5px 0; 
+    font-size: 1.2rem; 
+    letter-spacing: 0px;    
+    line-height: 2;        
+    text-align: center;
+    color: $text_color;  
+    @media screen and (min-width: 768px) {         
+      margin: 8px 0 20px 0; 
+      padding: 5px 0;
+      text-align: center;
+    }       
+  }
+   
+}
+
+.column-links {               
+  display: flex;
+  flex-direction: row;
+  justify-content: center;     
+  align-items: center;
+  margin: 25px 0;
+  padding: 0; 
+  font-size: 16px;
+      
+  &__button {
+    display: block; 
+    padding: 10px 15px;
+    border: 2px solid $column-button_color;
+    border-radius: 50px;
+    background: #f6f6f8;    
+    text-decoration: none;
+    &:hover {
+      opacity: 0.7; 
+      cursor: pointer;
+    }
+  }
+
+  &__button-text{
+    display: block;
+    font-size: 1em;
+    font-weight: 400;
+    text-align: center;  
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px; 
+    color: $column-button_color;
+  }
+    
+}
+
+/********** module flex-column ***********/
+
+
+/***** TODO - module reviews *********************/
+.reviews {
+  max-width: calc(100%);  
+  margin-bottom: 0px;
+  padding: 50px 0;
+  
+  background-image: url('../img/bg5.jpg'); 
+  display: block;
+  max-width: 100%;
+  min-height: 100vh;  	
+  background-size: cover;
+  background-position: 0% 0%;   
+  background-repeat: no-repeat;    
+  
+  &__prev-title {  
+    margin: 0px 5px;
+    padding: 0; 
+    text-align: center;
+    font-size: 2rem; 
+    /*font-size: calc(25px + (40 + 40 * 0.7) *(100vw - 320px) / 1920);*/
+    font-weight: 400;       
+    color: $color_base;
+    @media screen and (min-width: 645px) {
+      font-size: 2.8rem;
+    }   
+  }
+  
+  &__prev-text {    
+    max-width: 100%; 
+    margin: 20px 0px 50px 0px;
+    font-size: 1.5rem;     
+    text-align: center; 
+    letter-spacing: 6px;  
+    color: $color_base;
+    @media screen and (min-width: 645px) {
+      font-size: 1.75rem;
+    }  
+  }
+ 
+}
+
+/***** grid/flex *****/
+.reviews__reviews-box {   
+  display: grid;
+  margin-top: 75px;
+  grid-gap: 30px;  
+  grid-template-columns: repeat(1, 1fr); 
+  grid-auto-rows: minmax(100px, auto);
+  @media screen and (min-width: 485px) {       
+    grid-template-columns: repeat(2, 1fr);      
+  }  
+  @media screen and (min-width: 750px) {      
+    grid-template-columns: repeat(3, 1fr);      
+  }
+  @media screen and (min-width: 991px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;      
+  }
+            
+}
+
+.review-card {  
+  position: relative;   
+  &.review-card {
+    background: $review-card_bg; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* TODO - shadow */
+    @media screen and (min-width: 991px) {
+      width: 215px; 
+    }
+  }  
+
+  &__link {   
+    display: $review-link_display;               
+    flex-direction: row;
+    justify-content: center;  
+    align-items: center;    
+    width: 80px;
+    height: 80px;  
+    margin: -20px 5px 20px 5px;  
+    font-size: 16px;      
+    border-radius: 50%;        
+    &:hover {
+      opacity: 0.6; 
+      cursor: pointer;
+    }   
+  }
+  
+  &__link-icon { 
+    display: block;
+    width: 100%;
+    height: 100%;           
+    font-size: 2.7em;               
+    color: $review-icon_color;  
+    border-radius: 50%; 
+    background: #f6f6f6; 
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    
+    /* TODO - https://www.cssmatic.com/box-shadow - Box Shadow CSS Generator */
+    /*-webkit-box-shadow: 0px 16px 19px -10px rgba(204,204,204,1);
+    -moz-box-shadow: 0px 16px 19px -10px rgba(204,204,204,1);
+    box-shadow: 0px 16px 19px -10px rgba(204,204,204,1); */  
+    -webkit-box-shadow: 0px 6px 10px 1px rgba(112,112,112,0.19);
+    -moz-box-shadow: 0px 6px 10px 1px rgba(112,112,112,0.19);
+    box-shadow: 0px 6px 10px 1px rgba(112,112,112,0.19);  
+  }
+  
+  &__review-card-text {
+    margin-bottom: calc(1.3rem * 3);        
+    padding: 5px 0;                  
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: left;
+    color: $review-text_color;     
+  }
+  
+  &__review-card-title {
+    position: absolute;     
+    bottom: 10px;  
+    margin: 0;             
+    padding: 0.3rem 0;
+    font-size: 19.2px;
+    font-weight: 400; 
+    text-align: left; 
+    /*text-transform: uppercase;*/
+    word-break: break-all;                           
+    color: $review-title_color;   
+  }
+      
+  
+}
+
+.fas.fa-plane {
+  transform: rotate(315deg);
+}
+
+/*********** reviews ************/
+
+
+
