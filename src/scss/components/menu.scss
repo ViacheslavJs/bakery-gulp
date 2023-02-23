@@ -83,6 +83,7 @@
         bottom: 0; 
         border-radius: 0.12em;
         border: 0.12em solid $link-menu-active_color;
+        background: $link-menu-active_color;  
       }
     } 
     &:hover { 

@@ -10,6 +10,25 @@
   @media screen and (max-width: $mobile-big_end-point) {
     height: $header_mobile-height;
   }
+  
+  animation: scroll-anim 0.8s forwards; 
+  @keyframes scroll-anim {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+  
+  @media screen and (min-width: $tablet-small_starting-point) {
+    animation: scroll-anim 0.5s forwards;
+    @keyframes scroll-anim {
+      0% {transform: translateY(-50%);}
+      100% {transform: translateX(0);}
+    }
+  }
+  
+  &--scroll {
+    display: none; 
+  }
+  
 }
 
 .header__line {

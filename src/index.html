@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html', {
-    "title": "About"
+  @@include('html/layout/head.html', {
+    "title": "Home"
   })
   <body>
     <div class="wrapper">
       
-      @@include('html/home-header.html', {}) 
+      @@include('html/layout/home-header.html', {}) 
           
-      <main class="main">   
-        <section class="page-home">
+      <main class="main">
+      
+        <!-- main page content -->  
+        <div class="page-home">
+          
+          <!-- TODO - module bg-layer -->
+          <section class="bg-layer"> <!--<img class="bg-title__img-bg" src="img/bg.jpg">-->
+            <div class="container">
+              <div class="bg-layer__content">
+                <img class="bg-layer__brand" src="img/restaurant-brand.png" alt="brand"> 
+                <h1 class="bg-layer__title">Quality Breads are baked daily</h1>
+                <p class="bg-layer__text">Mauris fermentum tortor non enim aliquet condimentum. 
+                   Nam aliquam pretium feugiat. Suspendisse commodo tempor sagittis!</p>
+              </div>
+            </div>
+          </section>
+          <!-- module bg-layer -->
         
           <!-- TODO - module flex-sides -->
-          <div class="flex-sides">         
+          <section class="flex-sides">         
             <div class="container">                          
               <div class="flex-sides__content"> 
                                         
@@ -21,7 +36,7 @@
                 </div>   
                 
                 <div class="flex-sides__info"> 
-                  <img class="flex-sides__brand" src="logo/bread-logo.png">                 
+                  <img class="flex-sides__brand" src="logo/bread-logo.png" alt="brand">                 
                   <h1 class="flex-sides__title">Fresh breads handcrafted daily</h1>                            
                   <p class="flex-sides__text">Nibh venenatis cras sed felis eget velit aliquet sagittis id. 
                      Tellus pellentesque eu tincidunt tortor aliquam nulla.</p> 
@@ -35,22 +50,23 @@
                          
               </div><!-- flex-sides__content -->    
             </div><!-- container -->      
-          </div><!-- flex-sides -->  
+          </section><!-- flex-sides -->  
           <!-- module flex-sides -->  
           
           <!-- TODO - module product -->
-          <div class="product">
+          <section class="product">
             <div class="container">
               
               <h2 class="product__prev-title">Our ​Breads</h2>         
               <p class="product__prev-text">bread from our bakery</p>
                          
               <div class="product__product-box product-box"> 
-                                
+                
+                <!-- row1 -->             
                 <div class="product-box__product-card product-card">
                   <div class="container">
                   
-                    <img class="product-card__image" src="img/white-bread.jpg" alt="">                                
+                    <img class="product-card__image" src="img/white-bread.jpg" alt="bread">                                
                     <h3 class="product-card__product-card-title">Glassic Baguette</h3>            
                     <p class="product-card__product-card-text">Unbleached organic wheat flour, whole rye flour, 
                        water, sea salt, yeast </p>
@@ -67,7 +83,7 @@
                 <div class="product-box__product-card product-card">
                   <div class="container">
                   
-                    <img class="product-card__image" src="img/farming-bread.jpg" alt="">                              
+                    <img class="product-card__image" src="img/farming-bread.jpg" alt="bread">                              
                     <h3 class="product-card__product-card-title">Baguette</h3>            
                     <p class="product-card__product-card-text">Naturally leavened baguette made using 
                        the Five Points Levain dough. This baguette is crustier and chewier 
@@ -85,7 +101,7 @@
                 <div class="product-box__product-card product-card">
                   <div class="container">
                   
-                    <img class="product-card__image" src="img/loaf-bread.jpg" alt="">                          
+                    <img class="product-card__image" src="img/loaf-bread.jpg" alt="bread">                          
                     <h3 class="product-card__product-card-title">Pekan Raisin</h3>            
                     <p class="product-card__product-card-text">Naturally leavened bread made using 
                        the French Country dough with the additions of local Georgia 
@@ -103,7 +119,7 @@
                 <div class="product-box__product-card product-card">
                   <div class="container"> 
                   
-                    <img class="product-card__image" src="img/sourdough.jpg" alt="">                                  
+                    <img class="product-card__image" src="img/sourdough.jpg" alt="bread">                                  
                     <h3 class="product-card__product-card-title">Everyday french</h3>            
                     <p class="product-card__product-card-text">Everyday table loaf made using 
                        the Classic Baguette dough</p>
@@ -115,15 +131,108 @@
                     </div>
                         
                   </div>                
-                </div>     
+                </div>  
+                
+                <!-- row2 -->
+                 
+                <div class="product-box__product-card product-card">
+                  <div class="container">
+                  
+                    <img class="product-card__image" src="img/white-bread.jpg" alt="bread">                                
+                    <h3 class="product-card__product-card-title">Glassic Baguette</h3>            
+                    <p class="product-card__product-card-text">Unbleached organic wheat flour, whole rye flour, 
+                       water, sea salt, yeast </p>
+                       
+                    <div class="product-card__links product-links">                    
+                      <a class="product-links__button" href="">
+                        <span class="product-links__button-text">READ MORE</span>           
+                      </a>                
+                    </div>
+                     
+                  </div>                
+                </div> 
+          
+                <div class="product-box__product-card product-card">
+                  <div class="container">
+                  
+                    <img class="product-card__image" src="img/farming-bread.jpg" alt="bread">                              
+                    <h3 class="product-card__product-card-title">Baguette</h3>            
+                    <p class="product-card__product-card-text">Naturally leavened baguette made using 
+                       the Five Points Levain dough. This baguette is crustier and chewier 
+                       than the Classic Baguette</p>
+                       
+                    <div class="product-card__links product-links">                    
+                      <a class="product-links__button" href="">
+                        <span class="product-links__button-text">READ MORE</span>           
+                      </a>                
+                    </div>
+                       
+                  </div>                 
+                </div>
+            
+                <div class="product-box__product-card product-card">
+                  <div class="container">
+                  
+                    <img class="product-card__image" src="img/loaf-bread.jpg" alt="bread">                          
+                    <h3 class="product-card__product-card-title">Pekan Raisin</h3>            
+                    <p class="product-card__product-card-text">Naturally leavened bread made using 
+                       the French Country dough with the additions of local Georgia 
+                       pecans and Thompson raisins</p>
+                    
+                    <div class="product-card__links product-links">                    
+                      <a class="product-links__button" href="">
+                        <span class="product-links__button-text">READ MORE</span>           
+                      </a>                
+                    </div>
+                     
+                  </div>                
+                </div>
+                        
+                <div class="product-box__product-card product-card">
+                  <div class="container"> 
+                  
+                    <img class="product-card__image" src="img/sourdough.jpg" alt="bread">                                  
+                    <h3 class="product-card__product-card-title">Everyday french</h3>            
+                    <p class="product-card__product-card-text">Everyday table loaf made using 
+                       the Classic Baguette dough</p>
+                       
+                    <div class="product-card__links product-links">                    
+                      <a class="product-links__button" href="">
+                        <span class="product-links__button-text">READ MORE</span>           
+                      </a>                
+                    </div>
+                        
+                  </div>                
+                </div>
+                
+                
+                <!-- row3 -->   
+                         
+                <div class="product-box__product-card product-card">
+                  <div class="container">
+                  
+                    <img class="product-card__image" src="img/white-bread.jpg" alt="bread">                                
+                    <h3 class="product-card__product-card-title">Glassic Baguette</h3>            
+                    <p class="product-card__product-card-text">Unbleached organic wheat flour, whole rye flour, 
+                       water, sea salt, yeast </p>
+                       
+                    <div class="product-card__links product-links">                    
+                      <a class="product-links__button" href="">
+                        <span class="product-links__button-text">READ MORE</span>           
+                      </a>                
+                    </div>
+                     
+                  </div>                
+                </div>
+                  
                                      
               </div><!-- product-box -->
               
             </div><!-- container -->     
-          </div><!-- module product -->
+          </section><!-- module product -->
           
           <!-- TODO - module flex-sides-rev -->
-          <div class="flex-sides-rev">         
+          <section class="flex-sides-rev">         
             <div class="container">                          
               <div class="flex-sides-rev__content"> 
                                         
@@ -132,7 +241,7 @@
                 </div>   
                 
                 <div class="flex-sides-rev__info">                 
-                  <h1 class="flex-sides-rev__title">Ingredients & Method</h1>                            
+                  <h2 class="flex-sides-rev__title">Ingredients & Method</h2>                            
                   <p class="flex-sides-rev__text">Flour, water, sea salt, and leavening: 
                      four simple ingredients that—when mixed, shaped, fermented, and baked—make 
                      one of the most basic foods that has nourished humans for thousands of years. 
@@ -148,11 +257,11 @@
                              
               </div><!-- flex-sides-rev__content -->         
             </div><!-- container --> 
-          </div><!-- module flex-sides-rev -->          
+          </section><!-- module flex-sides-rev -->          
           <!-- module flex-sides-rev -->                        
               
           <!-- TODO - module grid-tiles -->
-          <div class="grid-tiles">
+          <section class="grid-tiles">
             <div class="container">
               
               <h2 class="grid-tiles__prev-title">Our ​Bread</h2>         
@@ -162,7 +271,7 @@
                 <div class="tiles-box__tile tile">
                   <div class="container">                                                         
                     <a class="tile__link" href="">
-                      <span class="tile__link-icon fas fa-suitcase-rolling"></span>  
+                      <span class="tile__link-icon fas fa-cookie-bite"></span>  
                     </a>                                                  
                     <h3 class="tile__tile-title">Glassic Baguette</h3>            
                     <p class="tile__tile-text">Unbleached organic wheat flour, whole rye flour, 
@@ -173,7 +282,7 @@
                 <div class="tiles-box__tile tile">
                   <div class="container">                                                  
                     <a class="tile__link" href="">
-                      <span class="tile__link-icon fas fa-plane"></span>  
+                      <span class="tile__link-icon fas fa-cookie-bite"></span>  
                     </a>                                                             
                     <h3 class="tile__tile-title">Baguette</h3>            
                     <p class="tile__tile-text">Naturally leavened baguette made using 
@@ -185,7 +294,7 @@
                 <div class="tiles-box__tile tile">
                   <div class="container">                                                
                     <a class="tile__link" href="">
-                      <span class="tile__link-icon fas fa-address-card"></span>  
+                      <span class="tile__link-icon fas fa-cookie-bite"></span>  
                     </a>                                                               
                     <h3 class="tile__tile-title">Pekan Raisin</h3>            
                     <p class="tile__tile-text">Naturally leavened bread made using 
@@ -197,7 +306,7 @@
                 <div class="tiles-box__tile tile">
                   <div class="container">                                              
                     <a class="tile__link" href="">
-                      <span class="tile__link-icon fas fa-award"></span>  
+                      <span class="tile__link-icon fas fa-cookie-bite"></span>  
                     </a>                                                               
                     <h3 class="tile__tile-title">Everyday french</h3>            
                     <p class="tile__tile-text">Everyday table loaf made using the Classic Baguette dough</p> 
@@ -207,7 +316,7 @@
                 <div class="tiles-box__tile tile">
                   <div class="container">                                                  
                     <a class="tile__link" href="">
-                      <span class="tile__link-icon fas fa-plane"></span>  
+                      <span class="tile__link-icon fas fa-cookie-bite"></span>  
                     </a>                                                             
                     <h3 class="tile__tile-title">Multigrain</h3>            
                     <p class="tile__tile-text">Naturally leavened bread made using 
@@ -219,7 +328,7 @@
                 <div class="tiles-box__tile tile">
                   <div class="container">                                                
                     <a class="tile__link" href="">
-                      <span class="tile__link-icon fas fa-address-card"></span>  
+                      <span class="tile__link-icon fas fa-cookie-bite"></span>  
                     </a>                                                               
                     <h3 class="tile__tile-title">Danish Rye</h3>            
                     <p class="tile__tile-text">Whole rye flour, cracked rye berries,
@@ -231,7 +340,7 @@
                 <div class="tiles-box__tile tile">
                   <div class="container">                                              
                     <a class="tile__link" href="">
-                      <span class="tile__link-icon fas fa-award"></span>  
+                      <span class="tile__link-icon fas fa-cookie-bite"></span>  
                     </a>                                                               
                     <h3 class="tile__tile-title">Levain</h3>            
                     <p class="tile__tile-text">Unbleached organic wheat flour, 
@@ -242,7 +351,7 @@
                 <div class="tiles-box__tile tile">
                   <div class="container">                                                
                     <a class="tile__link" href="">
-                      <span class="tile__link-icon fas fa-address-card"></span>  
+                      <span class="tile__link-icon fas fa-cookie-bite"></span>  
                     </a>                                                               
                     <h3 class="tile__tile-title">Ciabatta</h3>            
                     <p class="tile__tile-text">Unbleached organic wheat flour,
@@ -253,7 +362,7 @@
                 <div class="tiles-box__tile tile">
                   <div class="container">                                              
                     <a class="tile__link" href="">
-                      <span class="tile__link-icon fas fa-award"></span>  
+                      <span class="tile__link-icon fas fa-cookie-bite"></span>  
                     </a>                                                               
                     <h3 class="tile__tile-title">Handmade Bread</h3>            
                     <p class="tile__tile-text">Naturally leavened bread made using 
@@ -264,11 +373,11 @@
               </div><!-- tiles-box -->
             </div><!-- container -->
               
-          </div><!-- module grid-tiles -->
+          </section><!-- module grid-tiles -->
           <!-- module grid-tiles -->
           
           <!-- TODO - module flex-column -->
-          <div class="flex-column">         
+          <section class="flex-column">         
             <div class="container">                          
               <div class="flex-column__content">
                                          
@@ -277,7 +386,7 @@
                 </div>  
                  
                 <div class="flex-column__info">
-                  <img class="flex-column__brand" src="logo/bread-logo.png">                  
+                  <img class="flex-column__brand" src="logo/bread-logo.png" alt="brand">                  
                   <h1 class="flex-column__title">Our freshly baked bread is 
                       the hero of our breakfast menu</h1>              
                   <p class="flex-column__text">Nibh venenatis cras sed felis eget velit aliquet sagittis id. 
@@ -292,23 +401,80 @@
                            
               </div><!-- flex-column__content -->         
             </div><!-- container --> 
-          </div><!-- module flex-column -->           
+          </section><!-- module flex-column -->           
           <!-- module flex-column -->
           
           <!-- TODO - module reviews -->
-          <div class="reviews">
+          <section class="reviews">
             <div class="container">
               
               <h2 class="reviews__prev-title">Read what our customers say</h2>         
               <p class="reviews__prev-text">...leave your feedback</p>
                          
               <div class="reviews__reviews-box reviews-box"> 
-                                
+                
+                <!-- row1 -->                
                 <div class="reviews-box__review-card review-card">
                   <div class="container">
                                                 
                     <a class="review-card__link" href="">
-                      <span class="review-card__link-icon fas fa-suitcase-rolling"></span>  
+                      <span class="review-card__link-icon fas fa-quote-right"></span>  
+                    </a>                                                                                  
+                    <p class="review-card__review-card-text"><q lang="en">Proin sed libero enim sed faucibus turpis.
+                       At imperdiet dui accumsan sit amet nulla facilisi morbi tempus. 
+                       Ut sem nulla pharetra diam sit amet nisl.</q></p> 
+                    <h3 class="review-card__review-card-title">Celia Almeda</h3>
+                  </div>                
+                </div> 
+          
+                <div class="reviews-box__review-card review-card">
+                  <div class="container">
+                                                  
+                    <a class="review-card__link" href="">
+                      <span class="review-card__link-icon fas fa-quote-right"></span>  
+                    </a>                                                                                            
+                    <p class="review-card__review-card-text"><q lang="en">Proin sed libero enim sed faucibus turpis.
+                       At imperdiet dui accumsan sit amet nulla facilisi morbi tempus.
+                       Ut sem nulla pharetra diam sit amet nisl.
+                       Ut sem nulla pharetra diam sit amet nisl.</q></p>
+                    <h3 class="review-card__review-card-title">Frank Kinney</h3>
+                  </div>                 
+                </div>
+            
+                <div class="reviews-box__review-card review-card">
+                  <div class="container">
+                                                    
+                    <a class="review-card__link" href="">
+                      <span class="review-card__link-icon fas fa-quote-right"></span>  
+                    </a>                                                                                              
+                    <p class="review-card__review-card-text"><q lang="en">Proin sed libero enim sed faucibus turpis.
+                       At imperdiet dui accumsan sit amet nulla facilisi morbi tempus.
+                       Ut sem nulla pharetra diam sit amet nisl.</q></p> 
+                    <h3 class="review-card__review-card-title">Sam Perry</h3>
+                  </div>                
+                </div>
+                        
+                <div class="reviews-box__review-card review-card">
+                  <div class="container"> 
+                                                      
+                    <a class="review-card__link" href="">
+                      <span class="review-card__link-icon fas fa-quote-right"></span>  
+                    </a>                                                                                              
+                    <p class="review-card__review-card-text"><q lang="en">Proin sed libero enim sed faucibus turpis.
+                       At imperdiet dui accumsan sit amet nulla facilisi morbi tempus.
+                       Ut sem nulla pharetra diam sit amet nisl.
+                       Ut sem nulla pharetra diam sit amet nisl.</q></p>
+                    <h3 class="review-card__review-card-title">Marry Hudson</h3> 
+                  </div>                
+                </div>
+                
+                <!-- row2 -->
+                <!-- 
+                <div class="reviews-box__review-card review-card">
+                  <div class="container">
+                                                
+                    <a class="review-card__link" href="">
+                      <span class="review-card__link-icon fas fa-quote-right"></span>  
                     </a>                                                                                  
                     <p class="review-card__review-card-text">Proin sed libero enim sed faucibus turpis.
                        At imperdiet dui accumsan sit amet nulla facilisi morbi tempus. 
@@ -321,7 +487,7 @@
                   <div class="container">
                                                   
                     <a class="review-card__link" href="">
-                      <span class="review-card__link-icon fas fa-plane"></span>  
+                      <span class="review-card__link-icon fas fa-quote-right"></span>  
                     </a>                                                                                            
                     <p class="review-card__review-card-text">Proin sed libero enim sed faucibus turpis.
                        At imperdiet dui accumsan sit amet nulla facilisi morbi tempus.
@@ -335,7 +501,7 @@
                   <div class="container">
                                                     
                     <a class="review-card__link" href="">
-                      <span class="review-card__link-icon fas fa-address-card"></span>  
+                      <span class="review-card__link-icon fas fa-quote-right"></span>  
                     </a>                                                                                              
                     <p class="review-card__review-card-text">Proin sed libero enim sed faucibus turpis.
                        At imperdiet dui accumsan sit amet nulla facilisi morbi tempus.
@@ -343,34 +509,22 @@
                     <h3 class="review-card__review-card-title">Sam Perry</h3>
                   </div>                
                 </div>
-                        
-                <div class="reviews-box__review-card review-card">
-                  <div class="container"> 
-                                                      
-                    <a class="review-card__link" href="">
-                      <span class="review-card__link-icon fas fa-award"></span>  
-                    </a>                                                                                              
-                    <p class="review-card__review-card-text">Proin sed libero enim sed faucibus turpis.
-                       At imperdiet dui accumsan sit amet nulla facilisi morbi tempus.
-                       Ut sem nulla pharetra diam sit amet nisl.
-                       Ut sem nulla pharetra diam sit amet nisl.</p>
-                    <h3 class="review-card__review-card-title">Marry Hudson</h3> 
-                  </div>                
-                </div>     
+                -->   
                                      
               </div><!-- reviews-box -->
               
             </div><!-- container -->     
-          </div><!-- module reviews -->
+          </section><!-- module reviews -->
           <!-- module reviews -->
-          
-          
-          
-                                                                 
-        </section>            
+                                     
+          @@include('html/section/contacts.html', {}) 
+                                                                                                        
+        </div>
+        <!-- main page content -->
+                    
       </main>
       
-      @@include('html/footer.html', {})  
+      @@include('html/layout/footer.html', {})  
     </div>
     
     <script src="js/app.min.js"></script> 

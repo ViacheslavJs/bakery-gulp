@@ -1,30 +1,30 @@
 <header class="header">
   <div class="container">    
     <div class="header__inner">
-      @@include('logo.html', {}) 
+      @@include('../components/logo.html', {}) 
       <span class="menu-icon fas fa-bars blind-click"></span>
       <nav class="menu blind-click">
         <ul class="menu__list blind-click">
-          <li class="menu__list-item">
+          <li class="menu__list-item blind-click">
             <a class="menu__list-link" href="bakery.html">
               <span class="menu__list-title blind-click">Our bakery</span>
             </a>
           </li>
   
-          <li class="menu__list-item">
-            <a class="menu__list-link" href="shipping.html">
-              <span class="menu__list-title blind-click">Shipping and payment</span>
-            </a>
+          <li class="menu__list-item blind-click">            
+            <span class="menu__list-title menu__list-title--active blind-click">Shipping and payment</span>          
           </li>
   
-          <li class="menu__list-item">
+          <li class="menu__list-item blind-click">
             <a class="menu__list-link" href="faq.html">
               <span class="menu__list-title blind-click">FAQ</span>
             </a>
           </li>
   
-          <li class="menu__list-item">           
-            <span class="menu__list-title menu__list-title--active blind-click">Contacts</span>
+          <li class="menu__list-item blind-click">
+            <a class="menu__list-link" href="contacts.html">
+              <span class="menu__list-title blind-click">Contacts</span>
+            </a>
           </li>
         </ul>
       </nav>
@@ -32,5 +32,7 @@
   </div>
   <hr class="header__line"> 
 </header>
+
+  
 
   

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html', {
-    "title": "About"
+  @@include('html/layout/head.html', {
+    "title": "Bakery"
   })
   <body>
     <div class="wrapper">
       
-      @@include('html/bakery-header.html', {}) 
+      @@include('html/layout/bakery-header.html', {}) 
           
       <main class="main">
-        <section class="page-bakery">   
+        
+        <!-- main page content -->
+        <div class="page-bakery">   
           <p>Bakery</p>
           <p>Bakery</p>
           <p>Bakery</p>
@@ -23,10 +25,12 @@
           <p>Bakery</p>
           <p>Bakery</p>
           <p>XXXBakery</p>
-        </section>             
+        </div>
+        <!-- main page content --> 
+                    
       </main>
       
-      @@include('html/footer.html', {})  
+      @@include('html/layout/footer.html', {})  
     </div>
     
     <script src="js/app.min.js"></script> 

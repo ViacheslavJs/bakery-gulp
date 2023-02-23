@@ -1,59 +1,13 @@
 'use strict'
-//console.log('Привет!');
 
 import * as vjsFunctions from "./modules/functions.js"
 vjsFunctions.isWebp();
 
-//import { scrollFunc } from "./modules/scroll.js";
-//scrollFunc();
+import { headerScroll } from "./modules/scroll.js";
+headerScroll();
 
-
-// TODO - or (icon show/animation)
-const socialNetworkIcon = document.querySelector('.social-mobile__base-icon');
-const link = document.querySelectorAll('.social-mobile__link');
- 
-link.forEach(w => {
-  socialNetworkIcon.addEventListener('click', showIcons);
-  function showIcons() {
-    w.classList.toggle('icons-show');
-    socialNetworkIcon.classList.toggle('base-icon-hidden');
-      
-    // TODO - optional - hide icons when clicked anywhere
-    document.addEventListener('click', (event) => {
-      const classIs = event.target.classList.contains('blind-click');
-      //console.log(classIs);
-      const clickedClass = event.target.className;
-      //console.log(clickedClass); 
-      if (classIs == false) {
-        w.classList.remove('icons-show');
-        socialNetworkIcon.classList.remove('base-icon-hidden');      
-      }
-    });    
-  } 
-     
-});
-
-
-/*
-// TODO - or (self-disappearance icon show/animation)
-// connect 'cursor: default' property if using this js block
-const socialNetworkIcon = document.querySelector('.social-mobile__base-icon');
-const link = document.querySelectorAll('.social-mobile__link');
- 
-link.forEach(w => {
-  socialNetworkIcon.addEventListener('click', showIcons);
-  function showIcons() {
-    w.classList.add('icons-show');
-    socialNetworkIcon.classList.add('cursor-inactive');
-    socialNetworkIcon.removeEventListener('click', showIcons);
-    setTimeout( function() {
-      w.classList.remove('icons-show');
-      socialNetworkIcon.classList.remove('cursor-inactive');
-      socialNetworkIcon.addEventListener('click', showIcons);
-    }, 7000); 
-  }    
-});
-*/
+import { iconsControl } from "./modules/icons-control.js";
+iconsControl();
 
 /////////////////////////////////////////////
 
@@ -84,110 +38,166 @@ function showMenu() {
 
 try {
 
-  const screenBlock = document.getElementById('screen-block'); 
-  //console.log(screenBlock);
-  if (screenBlock !== null) {
+  const moduleContacts = document.getElementById('contacts'); 
+  //console.log(moduleContacts);
+  if (moduleContacts !== null) {
 
-    // TODO - scroll animation
-    function scrollDown() {
-      const screens = document.querySelectorAll('.page__screen');
-      screens.forEach(e => {
-        e.classList.remove('up');
-        e.classList.add('down');  
-        //console.log(e);
-      }); 
-    }
+/////////////////////////////////////////////////////////
+let formCancel = document.getElementsByClassName("form__body")[0];
+//let filePreviewReset = document.getElementsByClassName("file__preview")[0];
 
-    function scrollUp() {
-      const screens = document.querySelectorAll('.page__screen');
-      screens.forEach(e => {
-        e.classList.remove('down');
-        e.classList.add('up');  
-        //console.log(e);
-      }); 
-    }
+/*
+// TODO - кнопка очистки формы:
+let formButtonCancel = document.getElementsByClassName("form-button-cancel")[0];
+formButtonCancel.addEventListener('click', buttonCancel);
 
-    //scrollDown();
-    //scrollUp();
-    const btnUp = document.querySelector('.prev');
-    const btnDown = document.querySelector('.next');
-
-    btnUp.addEventListener('click', function() {
-      scrollDown();
-    });
-
-    btnDown.addEventListener('click', function() {
-      scrollUp();
-    });
-
-    /////////////////////////////////////////////
-
-    // TODO - slider/screen change
-    const btn1 = document.querySelector('.prev');
-    const btn2 = document.querySelector('.next');
-
-    /* // TODO - syntax variant:
-    btn1.addEventListener('click', () => plusSlides(-1) );
-    btn2.addEventListener('click', () => plusSlides(1) );
-    */
-
-    // TODO - syntax variant:
-    btn1.addEventListener('click', function() {
-      plusSlides(-1);
-    });
-
-    btn2.addEventListener('click', function() {
-      plusSlides(1);
-    });
-
-    btn1.addEventListener('click', function() {
-      currentSlide(imagesIndex)
-    });
-
-    btn2.addEventListener('click', function() {
-      currentSlide(imagesIndex)
-    });
-
-
-    let imagesIndex = 1;
-    viewSlides(imagesIndex); 
-
-    function plusSlides(num) {
-      viewSlides(imagesIndex += num); 
-    }
-
-    function currentSlide(num) {
-      viewSlides(imagesIndex = num); 
-    }
-
-    function viewSlides(num) {
-      const img = document.getElementsByClassName('page__screen');
-      const dots = document.getElementsByClassName("controls-dot-container__dot");
-      let i;
- 
-      if (num > img.length) {
-      imagesIndex = 1
-      }      
-  
-      if (num < 1) {
-        imagesIndex = img.length
-      }
-  
-      for (i = 0; i < img.length; i++) {
-          img[i].style.display = "none";  
-      }
-  
-      for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-      }
-    
-      img[imagesIndex-1].style.display = "block";
-      dots[imagesIndex-1].className += " active";  
-  
-    }
-    
-  }
+function buttonCancel() {  
+  formCancel.reset(); 
+  //filePreviewReset.innerHTML = "";
 }
+
+*/
+//
+// скрипт для формы - валидация, отправка:
+
+// стандартная проверка что документ уже загружен:
+document.addEventListener("DOMContentLoaded", function () { 
+
+/////////////////////////////////////////////////////
+// TODO мой код - очистка формы при перезагрузке документа:
+
+   formCancel.reset(); 
+   //filePreviewReset.innerHTML = "";
+   
+/////////////////////////////////////////////////////
+
+   // перехватываем отправку формы по нажатию кнопки:
+   const form = document.getElementById("form"); // присваиваем весь объект форм в переменную
+   
+   form.addEventListener("submit", formSend); // вешаем событие на переменную - при отправке формы скрипт 
+                                              // перейдёт в функцию formSend:
+  
+   async function formSend(e) {
+      e.preventDefault(); // запрещаем стандартную отправку формы по нажатию - всё будет происходить в JS:
+   
+      // простая валидация формы:
+      let error = formValidate(form); // переменная для результата работы formValidate
+      
+      let formData = new FormData(form); // эта строка вытягивает все данные полей
+      //formData.append("image", formImage.files[0]); // добавляем в эту переменную файл, полученный в функ. uploadFile
+      
+      // если error равен 0 - форма прошла валидацию
+      // отправка с помощью ajax(а именно fetch):
+      if (error === 0) {
+      	form.classList.add("_sending"); // добавляем класс
+      	      	   	    	
+      	//formButtonCancel.classList.add("hidden-cancel"); // TODO моя строка - скрываем кнопку "отмена" 
+      	
+         let response = await fetch( "sendmail.php", {
+            method: "POST",
+         	body: formData
+         });
+         // получаем ответ (в виде json) успешна ли отправка, и если да, то:
+         if (response.ok) {
+          	let result = await response.json();
+          	alert(result.message); // ...выводим сообщение
+          	formPreview.innerHTML = ""; // ...очищаем div с файлом
+          	form.reset(); // ...очищаем поля формы
+          	form.classList.remove("_sending"); 
+         } else {
+         	alert("Ошибка!");
+         	form.classList.remove("_sending"); 
+         	         	        	   	
+         	//formButtonCancel.classList.remove("hidden-cancel"); // TODO моя строка - показываем кнопку "отмена"      
+         	
+         }
+      } else {
+      	alert("Заполните обязательные поля!");
+      }
+   }
+   
+   function formValidate(form) {
+   	let error = 0;
+   	let formReq = document.querySelectorAll("._req"); // присваиваем сюда все объекты с классом ._req
+   	
+   	for (let index = 0; index < formReq.length; index++) {
+   		const input = formReq[index];
+   		formRemoveError(input);
+   		
+   		if ( input.classList.contains("_email") ) {
+   			if ( emailTest(input) ) {
+   				formAddError(input);
+   				error++;
+   			}
+   		} else if ( input.getAttribute("type") === "checkbox" && input.checked === false ) {
+   			formAddError(input);
+   				error++;
+   		} else {
+   			if (input.value === "") {
+   				formAddError(input);
+   				error++;
+   			}
+   		}
+   	}
+   	return error;
+   }
+   
+   function formAddError(input) {
+   	input.parentElement.classList.add("_error");
+   	input.classList.add("_error");
+   }
+   
+   function formRemoveError(input) {
+   	input.parentElement.classList.remove("_error");
+   	input.classList.remove("_error");
+   }
+   
+   function emailTest(input) {
+   	return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+   }
+   
+   /*
+   // получаем инпут file в переменную:
+   const formImage = document.getElementById("formImage");
+   // получаем див для превью в переменную:
+   const formPreview = document.getElementById("formPreview");
+   
+   // слушаем изменения в инпуте file:
+   formImage.addEventListener("change", () => {
+   	uploadFile( formImage.files[0] ); // в данном случае файл у нас один
+   });
+   
+   function uploadFile(file) {
+   	// проверяем тип файла:
+   	if ( !["image/jpeg", "image/png", "image/gif"].includes(file.type) ) {
+   		alert("Разрешены только изображения!");
+   		formImage.value = "";
+   		return;
+   	}
+   	// проверяем размер файла (<2 Мб)
+   	if (file.size > 2 * 1024 * 1024) {
+   		alert("Файл должен быть менее 2 Мб!");
+   		return;
+   	}
+      
+      var reader = new FileReader();
+      reader.onload = function (e) {
+      	formPreview.innerHTML = `<img src="${e.target.result}" alt="Фото">`;
+      };
+      reader.onerror = function (e) {
+      	alert("Ошибка!");
+      };
+   	reader.readAsDataURL(file);
+   }
+   
+   */
+   
+   
+}); 
+
+} // if (moduleContacts !== null)
+
+} // try
 
 catch(err) {
   //console.log(err.name, err.message);

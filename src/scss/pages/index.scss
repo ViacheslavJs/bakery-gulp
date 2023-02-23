@@ -3,6 +3,12 @@
 $color_base: #ffffff;
 $text_color: #404040;
 
+/* module bg-layer */
+$bg-layer-text_color: $color_base;
+$bg-layer_bg-attachment: fixed; /* scroll/fixed */
+$bg-layer_top: 200px; /* if there brand image - 100px, else - 200px */
+$bg-layer-brand_display: none; /* block/none */
+
 /* module flex-sides */
 $sides-title_color: #646464;
 $sides-button_color: #fab145;
@@ -10,16 +16,20 @@ $sides-button_color: #fab145;
 /* module flex-sides-rev */
 $rev-sides-title_color: darken(#eeb16d, 7%);
 $rev-sides-text_color: darken($color_base, 5%);
+$rev-sides-button_color: #fab145;
 
 /* module product */
 $product-title_color: #646464;
 $product-text_color: darken($color_base, 30%);
+$product_bg-attachment: fixed; /* scroll/fixed */
 
 /* module grid-tiles */
-$tile-link_display: none;     /* flex/none */
-$tile-icon_color: #eeb16d;
+$tile-link_display: flex;     /* flex/none */
+$tile-icon_color: #f6f6f6;
+$tile-icon_background: #eeb16d;
 $tile-title_color: #eeb16d;
 $tile-text_color: darken($color_base, 30%);
+$tile_bg-attachment: fixed; /* scroll/fixed */
 
 /* module flex-column */
 $column-brand_display: none;  /* block/none */
@@ -33,17 +43,88 @@ $review-card_bg: #f6f6f8;
 $review-icon_color: darken(#eeb16d, 20%);
 $review-text_color: darken(#646464, 0%);
 $review-title_color: darken(#eeb16d, 30%);
-$rev-sides-button_color: #fab145;
+$review_bg-attachment: fixed; /* scroll/fixed */
 
 
 .page-home {
   font-family: sans-serif;         
-  margin-top: $header_height; 
-  @media screen and (max-width: $mobile-big_end-point) {
-    margin-top: $header_mobile-height;
-  }
-
 }
+
+/***** TODO - module bg-layer *********************/
+.bg-layer {
+  position: relative; /* TODO -for &::after */
+  max-width: calc(100%);    
+  padding-top: $bg-layer_top;
+  padding-bottom: 10px;
+   
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/bg.jpg');
+  /*background-image: url('../img/bg.jpg');*/
+  display: block;
+  max-width: 100%;
+  min-height: 60vh;  	 
+  background-size: cover;
+  background-position: 50% 55%;  
+  background-repeat: no-repeat;
+  background-attachment: $bg-layer_bg-attachment;
+  /*background: url('../img/bg.jpg') 50% 55% / cover no-repeat fixed;*/ 
+  
+  &::after { 
+    display: none; /* TODO */
+    content: "";
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    background: rgba(51, 51, 51, 0.5);
+    /*background: rgba(256, 256, 256, 0.2);*/  
+  }
+    
+  &__content {    
+    position: relative;
+    z-index: 40;    
+  }   
+  
+  &__brand {
+    display: $bg-layer-brand_display;
+    max-width: calc(75% + 10px);
+    margin: 0 auto 100px auto;
+    @media screen and (min-width: 645px) {
+      max-width: calc(55% + 20px);
+    }    
+  }
+  
+  &__title {      
+    margin: 0 auto;
+    padding: 5px 0;            
+    font-family: serif;
+    font-size: calc(35px + (40 + 40 * 0.7) * (100vw - 320px) / 1920);
+    font-weight: 400;
+    text-align: center;       
+    color: $bg-layer-text_color;
+    @media screen and (min-width: 645px) {
+      max-width: 70%;
+      font-size: 3.2rem;
+    }    
+  }
+  
+  &__text {                  
+    margin: 0 auto;     
+    padding: 5px 0; 
+    font-size: 1.1rem; 
+    letter-spacing: 0px;    
+    line-height: 2;        
+    text-align: center;
+    color: $bg-layer-text_color;  
+    @media screen and (min-width: 768px) {
+      max-width: 80%;          
+    }         
+  }
+  
+}
+
+/***** module bg-layer *********************/
+
 
 /***** TODO - module flex-sides *********************/
 .flex-sides { 
@@ -208,7 +289,8 @@ $rev-sides-button_color: #fab145;
   min-height: 100vh;  	
   background-size: cover;
   background-position: 40% 0%;   
-  background-repeat: no-repeat;    
+  background-repeat: no-repeat;
+  background-attachment: $product_bg-attachment;   
   
   &__prev-title {  
     margin: 0px 5px;
@@ -249,10 +331,8 @@ $rev-sides-button_color: #fab145;
   @media screen and (min-width: 750px) {      
     grid-template-columns: repeat(3, 1fr);      
   }
-  @media screen and (min-width: 991px) {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;      
+  @media screen and (min-width: 991px) {      
+    grid-template-columns: repeat(4, 1fr);      
   }
             
 }
@@ -519,7 +599,8 @@ $rev-sides-button_color: #fab145;
   min-height: 100vh;  	
   background-size: cover;
   background-position: 0% 0%;   
-  background-repeat: no-repeat;    
+  background-repeat: no-repeat;
+  background-attachment: $tile_bg-attachment;    
   
   &__prev-title {  
     margin: 0px 5px;
@@ -605,7 +686,7 @@ $rev-sides-button_color: #fab145;
     font-size: 2.7em;               
     color: $tile-icon_color;  
     border-radius: 50%; 
-    background: #f6f6f6; 
+    background: $tile-icon_background; 
   
     display: flex;
     flex-direction: row;
@@ -642,10 +723,6 @@ $rev-sides-button_color: #fab145;
     color: $tile-text_color;     
   }  
   
-}
-
-.fas.fa-plane {
-  transform: rotate(315deg);
 }
 
 /***** module grid-tiles *********************/
@@ -805,7 +882,8 @@ $rev-sides-button_color: #fab145;
   min-height: 100vh;  	
   background-size: cover;
   background-position: 0% 0%;   
-  background-repeat: no-repeat;    
+  background-repeat: no-repeat;
+  background-attachment: $review_bg-attachment;    
   
   &__prev-title {  
     margin: 0px 5px;
@@ -847,10 +925,8 @@ $rev-sides-button_color: #fab145;
   @media screen and (min-width: 750px) {      
     grid-template-columns: repeat(3, 1fr);      
   }
-  @media screen and (min-width: 991px) {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;      
+  @media screen and (min-width: 991px) {      
+    grid-template-columns: repeat(4, 1fr);      
   }
             
 }
@@ -908,6 +984,7 @@ $rev-sides-button_color: #fab145;
     margin-bottom: calc(1.3rem * 3);        
     padding: 5px 0;                  
     font-size: 1rem;
+    font-style: italic;
     line-height: 1.4;
     text-align: left;
     color: $review-text_color;     
@@ -919,6 +996,7 @@ $rev-sides-button_color: #fab145;
     margin: 0;             
     padding: 0.3rem 0;
     font-size: 19.2px;
+    font-style: italic;
     font-weight: 400; 
     text-align: left; 
     /*text-transform: uppercase;*/
@@ -929,11 +1007,40 @@ $rev-sides-button_color: #fab145;
   
 }
 
-.fas.fa-plane {
-  transform: rotate(315deg);
+
+q:lang(en) {
+  quotes: "\201C" "\201D"; /* Вид кавычек для английского языка */ 
 }
 
+/*
+q:lang(fr), q:lang(ru) { /* Тип кавычек для русского и французского языка  
+  quotes: "\00AB" "\00BB"; 
+}
+q:lang(de) {
+  quotes: "\201E" "\201C"; /* Вид кавычек для немецкого языка 
+}
+*/
+
 /*********** reviews ************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

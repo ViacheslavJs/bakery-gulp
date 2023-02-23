@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('html/head.html', {
-    "title": "More"
+  @@include('html/layout/head.html', {
+    "title": "Contacts"
   })
   <body>
     <div class="wrapper">
              
-      @@include('html/contacts-header.html', {})  
+      @@include('html/layout/contacts-header.html', {})  
             
       <main class="main">
-        <section class="page-contacts">
+      
+        <!-- main page content -->
+        <div class="page-contacts">
           <p>Contacts</p>
           <p>Contacts</p>
           <p>Contacts</p>
@@ -19,11 +21,16 @@
           <p>Contacts</p>
           <p>Contacts</p>
           <p>Contacts</p>
-          <p>XXXContacts</p> 
-        </section>           
+          <p>XXXContacts</p>
+          
+          @@include('html/section/contacts.html', {})
+           
+        </div>
+        <!-- main page content -->  
+                 
       </main>
       
-      @@include('html/footer.html', {})  
+      @@include('html/layout/footer.html', {})  
     </div>
     
     <script src="js/app.min.js"></script> 

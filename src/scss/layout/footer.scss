@@ -1,5 +1,6 @@
 
-footer {
+footer { 
+  position: relative;
   max-width: 100%;
   height: auto; /* TODO - necessarily!*/  
   margin-top: auto;
@@ -23,10 +24,14 @@ footer {
   &__logo {   
     display: flex;
     flex-direction: row;                   
-    justify-content: center;   
+    justify-content: center;  
     align-items: center; 
-    height: 4.6em; 
-    font-size: 16px;  
+    height: 2.4em;
+    font-size: 16px; 
+    @media screen and (max-width: 560px) { 
+      margin-bottom: 15px; 
+    }    
+     
     &:hover {    
       transition: 0.4s; 
       cursor: pointer;
@@ -34,29 +39,26 @@ footer {
   }
 
   &__logo-link {
-    position: relative;                     
-    padding: 1.5em 1em 1.5em 1.5em;
-    @media screen and (min-width: 561px) { 
-      padding: 1.5em 1em 1.5em 0em; 
-    }  
+    position: relative; 
+    padding: 0.3em 0.3em 0.3em 0;                     
   }
 
   &__logo-link:hover::before {
     position: absolute;
     content: "";
-    right: -2.2em; 
-    bottom: 0em;
+    right: -1.5em; 
+    bottom: -0.5em;
     height: 0;
     width: 0;
-    border-left: 2.2em solid $footer-logo_hover;
-    border-top: 2.4em solid transparent;
-    border-bottom: 2.4em solid transparent; 
+    border-left: 1.4em solid $footer-logo_hover;
+    border-top: 1.6em solid transparent;
+    border-bottom: 1.6em solid transparent; 
   }
 
   &__logo-text {    
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: 900;
-    letter-spacing: 5px;
+    letter-spacing: 0.2em;
     color: $color_base;      
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
   }

@@ -14,9 +14,11 @@
 @import "pages/faq.scss";
 @import "pages/contacts.scss";
 
-@import "components/social-icons.scss";
 @import "components/menu.scss";
 @import "components/logo.scss";
+@import "components/messengers.scss";
+
+@import "section/contacts.scss";
 
 /* reset, normalize */
 html {
@@ -49,12 +51,15 @@ body {
   overflow: hidden;
 }
 
-.main {
-  
+.main {    
+  margin-top: $header_height; 
+  @media screen and (max-width: $mobile-big_end-point) {
+    margin-top: $header_mobile-height;
+  }
 }
 
 .container {
-  max-width: $mobile-big_end-point;          
+  max-width: $mobile-big_end-point;           
   margin: 0 auto;
   padding: 0 15px;
   @media screen and (max-width: 350px) {
