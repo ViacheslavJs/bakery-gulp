@@ -2,16 +2,19 @@
 $messendgers_bg: rgba(0, 0, 0, 0.4); /* values - rgba(0, 0, 0, 0.6); rgba(256, 256, 256, 0.8); */
 $color-base: #ffffff;
 
+$messengers-box_position: fixed; /* absolute/fixed - if 'absolute' top: -75px; if 'fixed' - bottom: 100px;*/
+
 $phone_color: $color-base;      /* #2dd736; or $color-base; */
 $messendger_color: $color-base; /* #1287f7; or $color-base; */
 $telegram_color: $color-base;   /* #48a9e1; or $color-base; */
 $viber_color: $color-base;      /* #7c59ea; or $color-base; */
 
 .messengers-box {  
-  position: absolute;
+  position: $messengers-box_position;
   display: flex;  
-  right: 12px; 
-  top: -75px; 
+  /*top: -75px;*/
+  bottom: 100px;
+  right: 12px;   
   font-size: 16px;     
 }
 

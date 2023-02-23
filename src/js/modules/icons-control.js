@@ -29,8 +29,41 @@ export const iconsControl = () => {
     } 
      
   });
+  //
+  
+  // TODO - animation direction (using 'window.matchMedia' method )
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Testing_media_queries - description here
+  const mediaQueryList = window.matchMedia('(orientation: portrait)');
+  //console.log(mediaQueryList.matches);
+  const messengerLink = document.querySelectorAll('.messengers-box__link'); 
+  messengerLink.forEach(element => {
+  
+    if (mediaQueryList.matches) {
+      element.classList.toggle('direction-x');
+      //console.log('portrait');
+    } else {
+      element.classList.toggle('direction-y');
+      //console.log('landscape');
+    }
+  
+    function handleOrientationChange(evt) {
+      if (evt.matches) {
+        element.classList.remove('direction-x'); 
+        element.classList.add('direction-y');
+      } else {
+        element.classList.remove('direction-y'); 
+        element.classList.add('direction-x');
+      }
+    }
+    handleOrientationChange(mediaQueryList); 
+    mediaQueryList.addEventListener("change", handleOrientationChange);
+    
+  });
+  //
+  
 
-  // TODO - animation direction - somersault over the head)) - works 100%:
+  /*
+  // TODO - or animation direction - somersault over the head)) - works 100%:
   const messengerLink = document.querySelectorAll('.messengers-box__link'); 
   messengerLink.forEach(element => {
     //console.log(element);
@@ -67,6 +100,8 @@ export const iconsControl = () => {
     window.addEventListener('resize', redirection); 
  
   });
+  //
+  */
   
   /*
   // TODO - self-disappearance messenger icons:
@@ -86,6 +121,7 @@ export const iconsControl = () => {
     }
         
   });
+  //
   */
 
 } // iconsControl
