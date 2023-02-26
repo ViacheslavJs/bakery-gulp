@@ -56,7 +56,7 @@ export const iconsControl = () => {
       }
     }
     handleOrientationChange(mediaQueryList); 
-    mediaQueryList.addEventListener("change", handleOrientationChange);
+    mediaQueryList.addEventListener('change', handleOrientationChange);
     
   });
   //

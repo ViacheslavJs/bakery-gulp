@@ -11,18 +11,10 @@
     height: $header_mobile-height;
   }
   
-  animation: scroll-anim 0.8s forwards; 
-  @keyframes scroll-anim {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
-  }
+  animation: scroll-anim_1 0.8s forwards; 
   
   @media screen and (min-width: $tablet-small_starting-point) {
-    animation: scroll-anim 0.5s forwards;
-    @keyframes scroll-anim {
-      0% {transform: translateY(-50%);}
-      100% {transform: translateX(0);}
-    }
+    animation: scroll-anim_2 0.5s forwards;
   }
   
   &--scroll {

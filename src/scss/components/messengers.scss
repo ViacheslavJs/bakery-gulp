@@ -4,18 +4,25 @@ $color-base: #ffffff;
 
 $messengers-box_position: fixed; /* absolute/fixed - if 'absolute' top: -75px; if 'fixed' - bottom: 100px;*/
 
-$phone_color: $color-base;      /* #2dd736; or $color-base; */
-$messendger_color: $color-base; /* #1287f7; or $color-base; */
-$telegram_color: $color-base;   /* #48a9e1; or $color-base; */
-$viber_color: $color-base;      /* #7c59ea; or $color-base; */
+$phone_color: $color-base;     /* #2dd736; or $color-base; */
+$messenger_color: $color-base; /* #1287f7; or $color-base; */
+$telegram_color: $color-base;  /* #48a9e1; or $color-base; */
+$viber_color: $color-base;     /* #7c59ea; or $color-base; */
 
 .messengers-box {  
-  position: $messengers-box_position;
+  position: $messengers-box_position; 
   display: flex;  
   /*top: -75px;*/
-  bottom: 100px;
+  bottom: 12px;
   right: 12px;   
-  font-size: 16px;     
+  font-size: 16px;   
+  
+  animation: scroll-anim_1 0.8s forwards; 
+  
+  &--scroll {
+    display: none; 
+  }
+    
 }
 
 .messengers-box__link {   
@@ -35,7 +42,7 @@ $viber_color: $color-base;      /* #7c59ea; or $color-base; */
   
   &.third.direction-x {
     right: 190px;
-    color: $messendger_color;
+    color: $messenger_color;
   }
   
   &.second.direction-x {
@@ -55,7 +62,7 @@ $viber_color: $color-base;      /* #7c59ea; or $color-base; */
   
   &.third.direction-y {
     bottom: 200px;
-    color: $messendger_color;
+    color: $messenger_color;
   } 
   
   &.second.direction-y {

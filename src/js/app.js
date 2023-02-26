@@ -3,8 +3,8 @@
 import * as vjsFunctions from "./modules/functions.js"
 vjsFunctions.isWebp();
 
-import { headerScroll } from "./modules/scroll.js";
-headerScroll();
+import { scrolling } from "./modules/scrolling.js";
+scrolling();
 
 import { iconsControl } from "./modules/icons-control.js";
 iconsControl();
