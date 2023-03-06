@@ -11,6 +11,7 @@ $viber_color: $color-base;     /* #7c59ea; or $color-base; */
 
 .messengers-box {  
   position: $messengers-box_position; 
+  z-index: 40;
   display: flex;  
   /*top: -75px;*/
   bottom: 12px;

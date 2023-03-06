@@ -672,7 +672,8 @@ $review_bg-attachment: fixed; /* scroll/fixed */
     height: 80px;  
     margin: 30px 5px 10px 5px;  
     font-size: 16px;      
-    border-radius: 50%;        
+    border-radius: 50%; 
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);        
     &:hover {
       opacity: 0.6; 
       cursor: pointer;
@@ -950,7 +951,8 @@ $review_bg-attachment: fixed; /* scroll/fixed */
     height: 80px;  
     margin: -20px 5px 20px 5px;  
     font-size: 16px;      
-    border-radius: 50%;        
+    border-radius: 50%;  
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);       
     &:hover {
       opacity: 0.6; 
       cursor: pointer;
