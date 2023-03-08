@@ -77,6 +77,22 @@ document.addEventListener("DOMContentLoaded", function () {
    form.addEventListener("submit", formSend); // вешаем событие на переменную - при отправке формы скрипт 
                                               // перейдёт в функцию formSend:
   
+  
+   // TODO - optional - tooltips:
+   const inputName = document.getElementById('formName');
+   const inputEmail = document.getElementById('formEmail');
+   const tooltipName = document.getElementsByClassName('form__tooltip-text')[0];
+   const tooltipEmail = document.getElementsByClassName('form__tooltip-text')[1];
+        
+   inputName.addEventListener("focus", function() {
+     tooltipName.style.visibility = 'hidden';
+   }, true);
+
+   inputEmail.addEventListener("focus", function() {
+     tooltipEmail.style.visibility = 'hidden';
+   }, true);
+   //
+  
    async function formSend(e) {
       e.preventDefault(); // запрещаем стандартную отправку формы по нажатию - всё будет происходить в JS:
    
@@ -112,7 +128,17 @@ document.addEventListener("DOMContentLoaded", function () {
          	
          }
       } else {
-      	alert("Заполните обязательные поля!");
+      	//alert("Заполните обязательные поля!");
+      	const isErrorName = inputName.classList.contains('_error');
+      	const isErrorEmail = inputEmail.classList.contains('_error');
+      	//console.log(isErrorName);
+      	//console.log(isErrorEmail);
+      	if ( isErrorName === true ) {     	
+      	  tooltipName.style.visibility = 'visible';
+      	}
+      	if ( isErrorEmail === true ) {
+      	  tooltipEmail.style.visibility = 'visible';
+        }
       }
    }
    
@@ -155,6 +181,25 @@ document.addEventListener("DOMContentLoaded", function () {
    function emailTest(input) {
    	return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
    }
+   
+   // TODO - optional:
+   const checkboxLabel = document.querySelector('.checkbox__label');
+   const checkbox = document.querySelector('.checkbox');
+   const btn = document.querySelector('.form__button');
+   
+   checkboxLabel.addEventListener('click', () => {
+     
+     btn.classList.toggle('form__button--inactive');
+     if ( btn.classList.contains('form__button--inactive') ) {
+     btn.disabled = true;
+     checkbox.classList.add('_error');
+     
+     } else {
+       btn.disabled = false;
+       checkbox.classList.remove('_error');
+     }
+     
+   });  
    
    /*
    // получаем инпут file в переменную:
