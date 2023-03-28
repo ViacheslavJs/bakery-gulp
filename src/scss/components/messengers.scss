@@ -1,5 +1,5 @@
 
-$messendgers_bg: rgba(0, 0, 0, 0.4); /* values - rgba(0, 0, 0, 0.6); rgba(256, 256, 256, 0.8); */
+$messendgers_bg: rgba(0, 0, 0, 0.7); /* values - rgba(0, 0, 0, 0.6); rgba(256, 256, 256, 0.8); */
 $color-base: #ffffff;
 
 $messengers-box_position: fixed; /* absolute/fixed - if 'absolute' top: -75px; if 'fixed' - bottom: 100px;*/
@@ -124,7 +124,7 @@ $viber_color: $color-base;     /* #7c59ea; or $color-base; */
   height: 50px;
   padding: 5px; 
   border-radius: 100%; 
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   transition: 0.8s;
     
   font-size: 1.9em;

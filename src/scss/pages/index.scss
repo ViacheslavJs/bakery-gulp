@@ -588,7 +588,7 @@ $review_bg-attachment: fixed; /* scroll/fixed */
 
 
 /***** TODO - module grid-tiles *********************/
-.grid-tiles {
+.grid-tiles {     
   max-width: calc(100%); 
   /*margin-bottom: 10px;*/
   padding: 50px 0;
@@ -596,7 +596,7 @@ $review_bg-attachment: fixed; /* scroll/fixed */
   background-image: url('../img/bg2.jpg'); 
   display: block;
   max-width: 100%;
-  min-height: 100vh;  	
+  min-height: 60vh;  	
   background-size: cover;
   background-position: 0% 0%;   
   background-repeat: no-repeat;
@@ -630,7 +630,7 @@ $review_bg-attachment: fixed; /* scroll/fixed */
 }
 
 /***** grid/flex *****/
-.grid-tiles__tiles-box {
+.grid-tiles__tiles-box {     
   display: grid;
   grid-gap: 20px;  
   grid-template-columns: repeat(1, 1fr); 
@@ -641,18 +641,12 @@ $review_bg-attachment: fixed; /* scroll/fixed */
   @media screen and (min-width: 750px) {      
     grid-template-columns: repeat(3, 1fr);      
   }
-  @media screen and (min-width: 991px) {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2vw;   
-  }
             
 }
   
 .tiles-box__tile {    
   &.tile {
-    border-radius: 20px;
+    border-radius: 20px;                 
     background: rgba(0, 0, 0, 0.7); 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* TODO - shadow */
     @media screen and (min-width: 991px) {
